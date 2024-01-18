@@ -86,3 +86,19 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+
+var total = 0
+
+for (var i = 0; i < finances.length; i++) {
+  total += finances[i][1];
+}
+
+
+console.log("FINANCIAL ANALYSIS")
+console.log("-----------")
+console.log("Total Months: " + finances.length)
+console.log("Total: $" + total)
+console.log("Average Change: $")
+console.log("Greatest Increase in Profits/Losses:")
+console.log("Greatest Decrease in Profits/Losses:")
