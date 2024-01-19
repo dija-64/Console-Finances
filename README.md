@@ -3,7 +3,9 @@ A repository for the Module 4 Challenge, writing JavaScript code that analyses a
 
 # Installation
 
-Accesible via GitHub Pages: 
+Accesible via GitHub Pages: https://dija-64.github.io/Console-Finances/
+
+Github Repo: https://github.com/dija-64/Console-Finances/
 
 # Usage
 
