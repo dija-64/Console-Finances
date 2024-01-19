@@ -95,6 +95,7 @@ var totalMonths = 0;
 for (var i = 0; i < finances.length; i++) {
   totalMonths += finances[i][1];
 }
+var monthTotal = parseInt(totalMonths)
 
 //Average Change
 
@@ -118,7 +119,7 @@ var ProfLoss = [867884, 984655, 322013, -69417, 310503, 522857, 1033096, 604885,
   712961, -1163797, 569899, 768450, 102685, 795914, 60988, 138230, 671099];
 var changeAv = avPLChange(ProfLoss);
 
-//Increase in Profits/Loses
+//Increase + Decrease in Profits/Loses
 var total = 0;
 var pChange = 0;
 var pIncrease = 0;
@@ -131,20 +132,27 @@ for (var i = 0; i < finances.length; i++) {
   if (i > 0) {
     var totalChange = finances[i][1] - finances[i - 1][1];
 
+    if (totalChange < 0) {
+      lChange += totalChange;
+      if (totalChange < lDecrease) {
+        lDecrease = totalChange;
+        lMonth = finances[i][0];
+      }
 
+    } else {
+      pChange += totalChange;
+      if (totalChange > pIncrease) {
+        pIncrease = totalChange;
+        pMonth = finances[i][0];
+      }
+    }
   }
-
-
 }
-
-//Decrease in Profits/Loses
-
-
 
 console.log("FINANCIAL ANALYSIS")
 console.log("-----------")
 console.log("Total Months: " + finances.length)
-console.log("Total: $" + totalMonths)
+console.log("Total: $" + Math.ceil(totalMonths) / 100 * 100)
 console.log("Average Change: $" + changeAv)
-console.log("Greatest Increase in Profits/Losses:")
-console.log("Greatest Decrease in Profits/Losses:")
+console.log("Greatest Increase in Profits/Losses:" + pMonth + " : $" + Math.ceil(pIncrease) / 100 * 100)
+console.log("Greatest Decrease in Profits/Losses:" + lMonth + " : $" + Math.ceil(lDecrease) / 100 * 100)
